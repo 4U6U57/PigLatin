@@ -20,7 +20,10 @@ public int findFirstVowel(String sWord)
     char letter = sWord.charAt(i);
     for (int j = 0; j < vowels.length(); j++) {
       char vowel = vowels.charAt(j);
-      if (letter == vowel) return i;
+      if (letter == vowel) {
+        System.out.println("findFirstVowel " + sWord + " -> " + i + "(" + vowel + ")");
+        return i;
+      }
     }
   }
   return -1;
@@ -30,9 +33,10 @@ public String pigLatin(String sWord)
   //precondition: sWord is a valid String of length greater than 0
   //postcondition: returns the pig latin equivalent of sWord
 {
-  if (findFirstVowel(sWord) == -1)
-  {
+  if (findFirstVowel(sWord) == -1) {
     return sWord + "ay";
+  } else if(findFirstVowel(sWord) == 1) {
+    return sWord + "way";
   } else {
     return "ERROR!";
   }
